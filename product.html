@@ -573,80 +573,99 @@
     </main>
 
 
+    <!-- 14. BLOCK 11: COMPREHENSIVE DARK FOOTER (Porto Signature) -->
     <footer class="porto-footer" id="footer">
-        <div class="container footer-widgets-row">
-            <div class="footer-widget-col">
-                <div class="footer-brand-title">PORTO <span>MODEST</span></div>
-                <div class="footer-brand-sub">دار الأزياء والعبايات المحتشمة</div>
-                <p class="footer-about-text">
-                    علامة رائدة في تصميم الأزياء النسائية المحتشمة والعبايات الراقية. نحرص على انتقاء أفخر الأقمشة اليابانية والكورية وتقديم تصاميم حصرية تليق بوقار وأناقة المرأة العصرية.
-                </p>
-                <div class="footer-social-links">
-                    <a href="https://wa.me/201027093535" target="_blank" class="footer-social-btn" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="footer-social-btn" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="footer-social-btn" title="سناب شات"><i class="fa-brands fa-snapchat"></i></a>
-                    <a href="#" class="footer-social-btn" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+        <div class="container">
+            
+            <!-- Newsletter Bar -->
+            <div class="footer-newsletter-bar">
+                <div class="newsletter-text-box">
+                    <h4>اشتركي في نادي روزانا فاشن للأناقة</h4>
+                    <p>سجلي بريدك الإلكتروني واحصلي فوراً على كود خصم 15% على أول طلب مع أحدث كولكشنات الموسم</p>
                 </div>
+                <form class="newsletter-form-box" onsubmit="event.preventDefault(); subscribeNewsletter();">
+                    <input type="email" id="newsletterEmail" class="newsletter-input-field" placeholder="أدخلي بريدك الإلكتروني..." required>
+                    <button type="submit" class="newsletter-submit-btn">اشتراك</button>
+                </form>
             </div>
 
-            <div class="footer-widget-col">
-                <h4 class="footer-widget-heading">أقسام المتجر</h4>
-                <ul class="footer-links-list">
-                    <li><a href="category.html?cat=abayas">العبايات الفاخرة والكوتور</a></li>
-                    <li><a href="category.html?cat=dresses">فساتين المناسبات المحتشمة</a></li>
-                    <li><a href="category.html?cat=casual">أطقم الكتان والعمل كاجوال</a></li>
-                    <li><a href="category.html?cat=scarves">طرح وشيلات الحرير الطبيعي</a></li>
-                    <li><a href="category.html?cat=bags">الحقائب الجلدية وكلاتش السهرة</a></li>
-                    <li><a href="shop.html?filter=sale">تخفيضات العروض الحصرية 70%</a></li>
-                </ul>
-            </div>
+            <!-- Footer Columns -->
+            <div class="footer-cols-grid">
+                
+                <!-- Col 1: About -->
+                <div class="footer-col">
+                    <div class="header-logo" style="margin-bottom: 16px;">
+                        <div class="logo-symbol" style="background: var(--porto-primary);">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="logo-text-wrap">
+                            <div class="logo-title" style="color: #FFFFFF;">PORTO <span>MODEST</span></div>
+                            <div class="logo-sub" style="color: #A0A5AA;">دار الأزياء والعبايات المحتشمة</div>
+                        </div>
+                    </div>
+                    <p>
+                        دار أزياء نسائية متخصصة في تقديم أرقى تصاميم العبايات الخليجية، فساتين المناسبات المحتشمة، وأطقم الكاجوال الراقية بأعلى معايير الجودة والحرفية والوقار.
+                    </p>
+                </div>
 
-            <div class="footer-widget-col">
-                <h4 class="footer-widget-heading">خدمة العملاء</h4>
-                <ul class="footer-links-list">
-                    <li><a href="admin/index.html"><i class="fa-solid fa-lock" style="color:var(--porto-primary); margin-left:6px;"></i> دخول إدارة المتجر (Admin)</a></li>
-                    <li><a href="about.html">عن دار روزانا للأزياء</a></li>
-                    <li><a href="contact.html">الفروع والمعارض الرسمية</a></li>
-                    <li><a href="contact.html">سياسة التعديل وتفصيل المقاسات</a></li>
-                    <li><a href="contact.html">الشحن والتوصيل لدول الخليج</a></li>
-                    <li><a href="contact.html">الضمان الذهبي والاستبدال السريع</a></li>
-                </ul>
-            </div>
+                <!-- Col 2: Categories -->
+                <div class="footer-col">
+                    <h5>أقسام المتجر</h5>
+                    <ul class="footer-links-list"><li><a href="admin/index.html"><i class="fa-solid fa-lock"></i> دخول إدارة المتجر (Admin)</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-left"></i> تشكيلة العبايات الفاخرة</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-left"></i> فساتين السهرة المحتشمة</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-left"></i> أطقم العمل والزيارات الكاجوال</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-left"></i> شيلات وطرح شيفون وليزر</a></li>
+                        <li><a href="shop.html?filter=sale"><i class="fa-solid fa-angle-left"></i> عروض التصفية الحصرية</a></li>
+                    </ul>
+                </div>
 
-            <div class="footer-widget-col">
-                <h4 class="footer-widget-heading">تواصلي معنا</h4>
-                <div class="footer-contact-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>الرياض، المملكة العربية السعودية - طريق الملك عبد العزيز، مجمع روزانا فاشن</span>
+                <!-- Col 3: Customer Care -->
+                <div class="footer-col">
+                    <h5>خدمة العملاء</h5>
+                    <ul class="footer-links-list">
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> جدول تحديد المقاسات الدقيق</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> سياسة الاستبدال والاسترجاع (14 يوماً)</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> خيارات الشحن والتوصيل السريع</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> شروط الشراء والضمان الذهبي</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> الأسئلة الشائعة وتنسيق الأقمشة</a></li>
+                    </ul>
                 </div>
-                <div class="footer-contact-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <span>الرقم الموحد: 800-440-9000 | واتساب: 01027093535</span>
-                </div>
-                <div class="footer-contact-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>care@rozana-fashion.com</span>
-                </div>
-                <div class="footer-newsletter-wrap">
-                    <p style="font-size:12px; color:#A0A6AD; margin-bottom:8px; font-weight:600;">اشتركي معنا للحصول على خصم 15% فوري:</p>
-                    <div style="display:flex; gap:6px;">
-                        <input type="email" id="newsletterEmail" placeholder="بريدك الإلكتروني..." style="flex:1; padding:10px 12px; border-radius:4px; border:1px solid #333; background:#1F2428; color:#fff; font-size:12.5px; outline:none;">
-                        <button onclick="subscribeNewsletter()" style="background:#0088CC; color:#fff; border:none; padding:10px 16px; border-radius:4px; font-weight:700; font-size:12.5px; cursor:pointer;">اشتراك</button>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col">
+                    <h5>تواصلي معنا</h5>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>الرياض، طريق الملك فهد - حي العليا، بوليفارد الأزياء الراقي، المملكة العربية السعودية</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>الرقم الموحد المجاني: 800-440-9000</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>care@rosanna-fashion.com</span>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="footer-bottom-bar">
-            <div class="container footer-bottom-inner" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:15px; padding:18px 0; border-top:1px solid #282C31; font-size:12.5px; color:#888;">
-                <div>جميع الحقوق محفوظة © 2026 <strong>روزانا فاشن للأزياء المحتشمة (PORTO MODEST)</strong>.</div>
-                <div style="display:flex; align-items:center; gap:12px; font-size:22px; color:#B0B7BF;">
+            </div>
+
+            <!-- Bottom Copyright & Payment -->
+            <div class="footer-bottom-bar">
+                <div>
+                    جميع الحقوق محفوظة © 2026 روزانا فاشن للأزياء المحتشمة • تم التطوير وفق معايير Porto Shop 4 العالمية.
+                </div>
+                <div class="payments-icons">
                     <i class="fa-brands fa-cc-visa" title="Visa"></i>
                     <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
-                    <span style="font-size:12px; font-weight:800; border:1px solid #444; padding:2px 6px; border-radius:3px;">MADA مدى</span>
+                    <i class="fa-brands fa-apple-pay" title="Apple Pay"></i>
+                    <span style="font-size: 11px; font-weight: 800; border: 1px solid #777; padding: 1px 6px; border-radius: 3px;">مدى MADA</span>
+                    <span style="font-size: 11px; font-weight: 800; border: 1px solid #777; padding: 1px 6px; border-radius: 3px;">تابي TABBY</span>
+                    <span style="font-size: 11px; font-weight: 800; border: 1px solid #777; padding: 1px 6px; border-radius: 3px;">تمارا TAMARA</span>
                 </div>
             </div>
+
         </div>
     </footer>
 
