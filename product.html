@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل القطعة | روزانا فاشن للأزياء المحتشمة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .breadcrumbs-bar {
+            padding: 16px 0;
+            font-size: 13px;
+            color: #777;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #ECECEC;
+            margin-bottom: 35px;
+        }
+        .breadcrumbs-bar a { color: #444; font-weight: 600; }
+        .breadcrumbs-bar a:hover { color: var(--porto-primary); }
+        .product-details-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 45px;
+            margin-bottom: 60px;
+        }
+        @media (max-width: 900px) {
+            .product-details-layout { grid-template-columns: 1fr; gap: 30px; }
+        }
+        .product-gallery-side {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .product-main-view {
+            position: relative;
+            background: #f8f8f8;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #EAEAEA;
+            max-height: 580px;
+        }
+        .product-main-view img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info-side {
+            display: flex;
+            flex-direction: column;
+        }
+        .prod-detail-cat {
+            font-size: 12.5px;
+            font-weight: 800;
+            color: var(--porto-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .prod-detail-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: #222529;
+            line-height: 1.35;
+            margin-bottom: 12px;
+        }
+        .prod-detail-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            color: #777;
+        }
+        .rating-stars { color: #F59E0B; }
+        .prod-detail-pricing {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: #FBFBFA;
+            border-radius: 6px;
+            border: 1px solid #EFEFEF;
+            margin-bottom: 22px;
+        }
+        .price-current {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--porto-primary);
+        }
+        .price-old {
+            font-size: 16px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .discount-badge-detail {
+            background: #FEE2E2;
+            color: #991B1B;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .prod-detail-desc {
+            font-size: 14.5px;
+            color: #555;
+            line-height: 1.75;
+            margin-bottom: 25px;
+        }
+        .option-group {
+            margin-bottom: 22px;
+        }
+        .option-label {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #222529;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .size-pills-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .size-pill-btn {
+            background: #fff;
+            border: 1.5px solid #D5DCE2;
+            color: #333;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .size-pill-btn.active, .size-pill-btn:hover {
+            border-color: var(--porto-primary);
+            color: var(--porto-primary);
+            background: #F0F8FD;
+        }
+        .quantity-and-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .qty-box-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .qty-counter {
+            display: flex;
+            align-items: center;
+            border: 1.5px solid #DDD;
+            border-radius: 4px;
+            background: #fff;
+        }
+        .btn-qty {
+            background: none;
+            border: none;
+            padding: 10px 16px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            color: #444;
+        }
+        .qty-input {
+            width: 45px;
+            border: none;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 800;
+            outline: none;
+        }
+        .cta-buttons-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        @media (max-width: 600px) {
+            .cta-buttons-group { grid-template-columns: 1fr; }
+        }
+        .btn-add-cart-main {
+            background: var(--porto-primary);
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.25s;
+        }
+        .btn-add-cart-main:hover { background: #006fa4; }
+        .btn-whatsapp-order {
+            background: #25D366;
+            color: #fff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+            text-decoration: none;
+        }
+        .btn-whatsapp-order:hover { background: #1ebd56; color: #fff; }
+        .trust-perks-box {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 18px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .trust-perk-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #334155;
+        }
+        .trust-perk-item i { color: var(--porto-primary); font-size: 16px; }
+        .product-tabs-section {
+            margin-top: 40px;
+            border-top: 1px solid #ECECEC;
+            padding-top: 35px;
+            margin-bottom: 60px;
+        }
+        .tabs-header-row {
+            display: flex;
+            gap: 15px;
+            border-bottom: 2px solid #EAEAEA;
+            margin-bottom: 25px;
+        }
+        .tab-btn-title {
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            padding: 10px 18px;
+            font-size: 15px;
+            font-weight: 800;
+            color: #666;
+            cursor: pointer;
+            margin-bottom: -2px;
+        }
+        .tab-btn-title.active {
+            color: var(--porto-primary);
+            border-bottom-color: var(--porto-primary);
+        }
+        .tab-content-panel {
+            font-size: 14.5px;
+            line-height: 1.8;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- OVERLAY FOR DRAWERS -->
+    <div class="drawer-overlay" id="drawerOverlay" onclick="closeAllDrawers()"></div>
+
+    <!-- 1. TOP ANNOUNCEMENT BAR (Porto Style) -->
+    <header class="porto-topbar">
+        <div class="container topbar-inner">
+            <div class="topbar-msg">
+                <span class="badge-tag">شحن مجاني</span>
+                <span>توصيل قياسي مجاني للطلبات فوق 299 ر.س لجميع مدن المملكة والخليج</span>
+            </div>
+            <div class="topbar-links">
+                <a href="admin/index.html" style="color:#0088CC; font-weight:700;"><i class="fa-solid fa-lock"></i> لوحة الإدارة</a>
+                <span class="topbar-divider"></span>
+                <a href="contact.html">تواصلي معنا</a>
+                <span class="topbar-divider"></span>
+                <a href="about.html">عن روزانا</a>
+                <span class="topbar-divider"></span>
+                <a href="javascript:void(0)" onclick="openCartDrawer()">حقيبة المشتريات</a>
+                <span class="topbar-divider"></span>
+                <span>SAR (ر.س)</span>
+                <span class="topbar-divider"></span>
+                <div class="topbar-social">
+                    <a href="https://wa.me/201027093535" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. MAIN HEADER (Porto Shop 4) -->
+    <section class="porto-header">
+        <div class="container header-inner">
+            <button class="icon-btn-porto" id="openMobMenuBtn" onclick="openMobileDrawer()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <a href="index.html" class="header-logo">
+                <div class="logo-symbol">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <div class="logo-text-wrap">
+                    <div class="logo-title">PORTO <span>MODEST</span></div>
+                    <div class="logo-sub">دار الأزياء والعبايات المحتشمة</div>
+                </div>
+            </a>
+
+            <div class="header-search-wrap">
+                <form class="header-searchform" action="shop.html" method="GET">
+                    <input type="text" name="q" id="searchInput" class="search-input" placeholder="ابحثي عن عباية، فستان سهرة، أو كولكشن محتشم...">
+                    <select class="search-cat-select" name="cat" id="searchCategory">
+                        <option value="all">جميع الأقسام</option>
+                        <option value="abayas">العبايات الفاخرة</option>
+                        <option value="dresses">فساتين المناسبات</option>
+                        <option value="casual">كولكشن كاجوال</option>
+                        <option value="scarves">طرح وشيلات حرير</option>
+                        <option value="bags">حقائب وإكسسوارات</option>
+                    </select>
+                    <button type="submit" class="search-submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+
+            <div class="header-actions">
+                <div class="header-hotline">
+                    <i class="fa-solid fa-phone-volume hotline-icon"></i>
+                    <div class="hotline-info">
+                        <span class="hotline-label">خدمة العملاء المجانية</span>
+                        <span class="hotline-number">800-440-9000</span>
+                    </div>
+                </div>
+
+                <div class="action-icons-group">
+                    <button class="icon-btn-porto" onclick="showToast('قائمة أمنياتك تضم القطع المفضلة لديك')" title="قائمة الأمنيات">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="cart-badge-count" id="wishlistBadge">0</span>
+                    </button>
+                    
+                    <div class="header-cart-box" id="openCartBtn" onclick="openCartDrawer()" title="عرض حقيبة المشتريات" style="cursor:pointer;">
+                        <div class="icon-btn-porto" style="pointer-events: none;">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span class="cart-badge-count" id="cartCountBadge">0</span>
+                        </div>
+                        <div class="cart-info-text">
+                            <span class="cart-info-label">سلة المشتريات</span>
+                            <span class="cart-info-total" id="headerCartTotal">0 ر.س</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. NAVIGATION BAR (Porto Categories + Main Menu) -->
+    <nav class="porto-navbar">
+        <div class="container navbar-inner">
+            <div class="nav-left-group">
+                <button class="btn-shop-by-category" id="catMenuToggleBtn">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>تصفح الأقسام | CATEGORIES</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size: 11px;"></i>
+                </button>
+
+                <div class="cat-dropdown-menu" id="catDropdownMenu">
+                    <a href="category.html?cat=abayas" class="cat-dropdown-item">
+                        <span><i class="fa-solid fa-shirt" style="margin-left: 8px; color: var(--porto-primary);"></i> العبايات الفاخرة</span>
+                        <span class="nav-badge-hot">HOT</span>
+                    </a>
+                    <a href="category.html?cat=dresses" class="cat-dropdown-item">
+                        <span><i class="fa-solid fa-vest" style="margin-left: 8px; color: var(--porto-primary);"></i> فساتين المناسبات المحتشمة</span>
+                        <span class="nav-badge-new">NEW</span>
+                    </a>
+                    <a href="category.html?cat=casual" class="cat-dropdown-item">
+                        <span><i class="fa-solid fa-layer-group" style="margin-left: 8px; color: var(--porto-primary);"></i> أطقم وبليزرات كاجوال</span>
+                        <i class="fa-solid fa-angle-left" style="font-size: 11px; color: #BBB;"></i>
+                    </a>
+                    <a href="category.html?cat=scarves" class="cat-dropdown-item">
+                        <span><i class="fa-solid fa-ribbon" style="margin-left: 8px; color: var(--porto-primary);"></i> طرح وشيلات حرير طبيعي</span>
+                        <i class="fa-solid fa-angle-left" style="font-size: 11px; color: #BBB;"></i>
+                    </a>
+                    <a href="category.html?cat=bags" class="cat-dropdown-item">
+                        <span><i class="fa-solid fa-bag-shopping" style="margin-left: 8px; color: var(--porto-primary);"></i> حقائب وإكسسوارات راقية</span>
+                        <i class="fa-solid fa-angle-left" style="font-size: 11px; color: #BBB;"></i>
+                    </a>
+                </div>
+
+                <ul class="nav-links-list">
+                    <li><a href="index.html" class="nav-item-link ">الرئيسية</a></li>
+                    <li><a href="shop.html" class="nav-item-link active">المتجر الكامل <span class="nav-badge-hot">HOT</span></a></li>
+                    <li><a href="category.html?cat=abayas" class="nav-item-link ">العبايات الفاخرة</a></li>
+                    <li><a href="category.html?cat=dresses" class="nav-item-link ">فساتين المناسبات</a></li>
+                    <li><a href="category.html?cat=casual" class="nav-item-link ">أطقم كاجوال</a></li>
+                    <li><a href="about.html" class="nav-item-link ">من نحن</a></li>
+                    <li><a href="contact.html" class="nav-item-link ">اتصل بنا</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-right-badge">
+                <a href="shop.html?filter=sale" style="color: #FFFFFF; font-weight: 700; font-size: 12.5px; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-bolt" style="color: #FFDE59;"></i>
+                    <span>عروض التخفيضات الكبرى 70%</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container">
+        <!-- BREADCRUMBS -->
+        <div class="breadcrumbs-bar">
+            <a href="index.html">الرئيسية</a>
+            <span>/</span>
+            <a href="shop.html">المتجر</a>
+            <span>/</span>
+            <span id="crumbCat">العبايات الفاخرة</span>
+            <span>/</span>
+            <span id="crumbTitle" style="color:#222529; font-weight:700;">اسم القطعة</span>
+        </div>
+
+        <!-- 2-COLUMN DETAILS -->
+        <div class="product-details-layout">
+            <!-- RIGHT: GALLERY -->
+            <div class="product-gallery-side">
+                <div class="product-main-view">
+                    <img id="mainProdImg" src="images/prod_abaya.jpg" alt="صورة المنتج">
+                    <span id="prodBadgeEl" style="position:absolute; top:16px; right:16px; background:var(--porto-accent); color:#fff; font-size:12px; font-weight:800; padding:4px 10px; border-radius:4px;">جديد</span>
+                </div>
+            </div>
+
+            <!-- LEFT: INFO & ACTIONS -->
+            <div class="product-info-side">
+                <div class="prod-detail-cat" id="prodCatTitle">عبايات فاخرة • ABAYAS</div>
+                <h1 class="prod-detail-title" id="prodTitle">عباية كريب ياباني ملكية بتطريز يدوي فاخر</h1>
+                
+                <div class="prod-detail-rating">
+                    <div class="rating-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <span>(4.9 من 5 بناءً على 28 تقييم حقيقي)</span>
+                </div>
+
+                <div class="prod-detail-pricing">
+                    <span class="price-current" id="prodPrice">420 ر.س</span>
+                    <span class="price-old" id="prodOldPrice">599 ر.س</span>
+                    <span class="discount-badge-detail" id="prodDiscountBadge">وفر 30%</span>
+                </div>
+
+                <p class="prod-detail-desc" id="prodDesc">
+                    مصنوعة من أرقى أقمشة الكريب الياباني الفاخر المقاوم للتجعد، مطرزة يدوياً بخيوط حريرية على الأكمام والأطراف مع طرحة مجانية مطابقة.
+                </p>
+
+                <!-- SIZE SELECTOR -->
+                <div class="option-group">
+                    <div class="option-label">
+                        <span>اختاري المقاس المناسب:</span>
+                        <a href="#sizeTable" style="color:var(--porto-primary); font-size:12px; text-decoration:underline;">دليل المقاسات</a>
+                    </div>
+                    <div class="size-pills-row" id="sizesRow">
+                        <button class="size-pill-btn active" onclick="selectSize('52', this)">52</button>
+                        <button class="size-pill-btn" onclick="selectSize('54', this)">54</button>
+                        <button class="size-pill-btn" onclick="selectSize('56', this)">56</button>
+                        <button class="size-pill-btn" onclick="selectSize('58', this)">58</button>
+                    </div>
+                </div>
+
+                <!-- QUANTITY & CTA BUTTONS -->
+                <div class="quantity-and-actions">
+                    <div class="qty-box-wrap">
+                        <span style="font-weight:700; font-size:13.5px;">الكمية:</span>
+                        <div class="qty-counter">
+                            <button class="btn-qty" onclick="changeQty(-1)">-</button>
+                            <input type="text" id="prodQtyInput" class="qty-input" value="1" readonly>
+                            <button class="btn-qty" onclick="changeQty(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons-group">
+                        <button class="btn-add-cart-main" onclick="addCurrentProductToCart()">
+                            <i class="fa-solid fa-bag-shopping" style="font-size:18px;"></i>
+                            <span>إضافة إلى حقيبة المشتريات</span>
+                        </button>
+                        <button class="btn-whatsapp-order" onclick="orderCurrentProductViaWhatsApp()">
+                            <i class="fa-brands fa-whatsapp" style="font-size:20px;"></i>
+                            <span>طلب فوري عبر واتساب</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TRUST BADGES -->
+                <div class="trust-perks-box">
+                    <div class="trust-perk-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>توصيل مجاني للطلبات فوق 299 ر.س</span>
+                    </div>
+                    <div class="trust-perk-item">
+                        <i class="fa-solid fa-scissors"></i>
+                        <span>تفصيل وتعديل المقاسات مجاناً</span>
+                    </div>
+                    <div class="trust-perk-item">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>استبدال فوري خلال 14 يوماً</span>
+                    </div>
+                    <div class="trust-perk-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>أقمشة فاخرة وضمان ذهبي 100%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPECIFICATIONS TABS -->
+        <div class="product-tabs-section" id="sizeTable">
+            <div class="tabs-header-row">
+                <button class="tab-btn-title active" onclick="switchProdTab('specTab', this)">مواصفات القماش والتفصيل</button>
+                <button class="tab-btn-title" onclick="switchProdTab('sizeTab', this)">جدول المقاسات</button>
+                <button class="tab-btn-title" onclick="switchProdTab('careTab', this)">طرق العناية والغسيل</button>
+            </div>
+
+            <div id="specTab" class="tab-content-panel">
+                <p><strong>نوع القماش:</strong> <span id="fabricDetail">كريب ياباني ملكي ثقيل مات غير شفاف نخب أول.</span></p>
+                <p><strong>القصة:</strong> قصة ربع كلوش مريحة وانسيابية تناسب الإطلالات الرسمية واليومية.</p>
+                <p><strong>الملحقات:</strong> تأتي القطعة مرفقة بطرحة سادة متناسقة مجاناً مصممة من نفس خامة العباية.</p>
+                <p><strong>التقفيلة:</strong> طقطق مخفي ياباني الصنع عالي المتانة.</p>
+            </div>
+
+            <div id="sizeTab" class="tab-content-panel" style="display:none;">
+                <table style="width:100%; border-collapse:collapse; margin-top:10px; font-size:13.5px; text-align:center;">
+                    <thead>
+                        <tr style="background:#F2F4F8; color:#222529;">
+                            <th style="padding:10px; border:1px solid #DDD;">المقاس</th>
+                            <th style="padding:10px; border:1px solid #DDD;">الطول (إنش)</th>
+                            <th style="padding:10px; border:1px solid #DDD;">عرض الصدر (إنش)</th>
+                            <th style="padding:10px; border:1px solid #DDD;">طول الكم (إنش)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td style="padding:10px; border:1px solid #DDD; font-weight:800;">52</td><td style="padding:10px; border:1px solid #DDD;">52</td><td style="padding:10px; border:1px solid #DDD;">21</td><td style="padding:10px; border:1px solid #DDD;">26</td></tr>
+                        <tr><td style="padding:10px; border:1px solid #DDD; font-weight:800;">54</td><td style="padding:10px; border:1px solid #DDD;">54</td><td style="padding:10px; border:1px solid #DDD;">23</td><td style="padding:10px; border:1px solid #DDD;">27</td></tr>
+                        <tr><td style="padding:10px; border:1px solid #DDD; font-weight:800;">56</td><td style="padding:10px; border:1px solid #DDD;">56</td><td style="padding:10px; border:1px solid #DDD;">25</td><td style="padding:10px; border:1px solid #DDD;">28</td></tr>
+                        <tr><td style="padding:10px; border:1px solid #DDD; font-weight:800;">58</td><td style="padding:10px; border:1px solid #DDD;">58</td><td style="padding:10px; border:1px solid #DDD;">27</td><td style="padding:10px; border:1px solid #DDD;">29</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="careTab" class="tab-content-panel" style="display:none;">
+                <ul style="list-style:disc; padding-right:20px; line-height:2;">
+                    <li>يُفضل الغسيل الجاف (Dry Clean) أو الغسيل اليدوي بالماء البارد وشامبو خاص بالعبايات.</li>
+                    <li>تجنب استخدام المبيضات أو مساحيق الغسيل القاسية التي تحتوي على كلور.</li>
+                    <li>يُكوى القماش بدرجة حرارة منخفضة بالبخار من الجهة الداخلية للحفاظ على رونق التطريز.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="porto-footer" id="footer">
+        <div class="container footer-widgets-row">
+            <div class="footer-widget-col">
+                <div class="footer-brand-title">PORTO <span>MODEST</span></div>
+                <div class="footer-brand-sub">دار الأزياء والعبايات المحتشمة</div>
+                <p class="footer-about-text">
+                    علامة رائدة في تصميم الأزياء النسائية المحتشمة والعبايات الراقية. نحرص على انتقاء أفخر الأقمشة اليابانية والكورية وتقديم تصاميم حصرية تليق بوقار وأناقة المرأة العصرية.
+                </p>
+                <div class="footer-social-links">
+                    <a href="https://wa.me/201027093535" target="_blank" class="footer-social-btn" title="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="footer-social-btn" title="انستغرام"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="footer-social-btn" title="سناب شات"><i class="fa-brands fa-snapchat"></i></a>
+                    <a href="#" class="footer-social-btn" title="تيك توك"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-widget-col">
+                <h4 class="footer-widget-heading">أقسام المتجر</h4>
+                <ul class="footer-links-list">
+                    <li><a href="category.html?cat=abayas">العبايات الفاخرة والكوتور</a></li>
+                    <li><a href="category.html?cat=dresses">فساتين المناسبات المحتشمة</a></li>
+                    <li><a href="category.html?cat=casual">أطقم الكتان والعمل كاجوال</a></li>
+                    <li><a href="category.html?cat=scarves">طرح وشيلات الحرير الطبيعي</a></li>
+                    <li><a href="category.html?cat=bags">الحقائب الجلدية وكلاتش السهرة</a></li>
+                    <li><a href="shop.html?filter=sale">تخفيضات العروض الحصرية 70%</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-widget-col">
+                <h4 class="footer-widget-heading">خدمة العملاء</h4>
+                <ul class="footer-links-list">
+                    <li><a href="admin/index.html"><i class="fa-solid fa-lock" style="color:var(--porto-primary); margin-left:6px;"></i> دخول إدارة المتجر (Admin)</a></li>
+                    <li><a href="about.html">عن دار روزانا للأزياء</a></li>
+                    <li><a href="contact.html">الفروع والمعارض الرسمية</a></li>
+                    <li><a href="contact.html">سياسة التعديل وتفصيل المقاسات</a></li>
+                    <li><a href="contact.html">الشحن والتوصيل لدول الخليج</a></li>
+                    <li><a href="contact.html">الضمان الذهبي والاستبدال السريع</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-widget-col">
+                <h4 class="footer-widget-heading">تواصلي معنا</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>الرياض، المملكة العربية السعودية - طريق الملك عبد العزيز، مجمع روزانا فاشن</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>الرقم الموحد: 800-440-9000 | واتساب: 01027093535</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>care@rozana-fashion.com</span>
+                </div>
+                <div class="footer-newsletter-wrap">
+                    <p style="font-size:12px; color:#A0A6AD; margin-bottom:8px; font-weight:600;">اشتركي معنا للحصول على خصم 15% فوري:</p>
+                    <div style="display:flex; gap:6px;">
+                        <input type="email" id="newsletterEmail" placeholder="بريدك الإلكتروني..." style="flex:1; padding:10px 12px; border-radius:4px; border:1px solid #333; background:#1F2428; color:#fff; font-size:12.5px; outline:none;">
+                        <button onclick="subscribeNewsletter()" style="background:#0088CC; color:#fff; border:none; padding:10px 16px; border-radius:4px; font-weight:700; font-size:12.5px; cursor:pointer;">اشتراك</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="container footer-bottom-inner" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:15px; padding:18px 0; border-top:1px solid #282C31; font-size:12.5px; color:#888;">
+                <div>جميع الحقوق محفوظة © 2026 <strong>روزانا فاشن للأزياء المحتشمة (PORTO MODEST)</strong>.</div>
+                <div style="display:flex; align-items:center; gap:12px; font-size:22px; color:#B0B7BF;">
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
+                    <span style="font-size:12px; font-weight:800; border:1px solid #444; padding:2px 6px; border-radius:3px;">MADA مدى</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE DRAWERS -->
+    <div class="slide-drawer" id="cartSlideDrawer">
+        <div class="drawer-header" style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid #EAEAEA;">
+            <div style="display:flex; align-items:center; gap:10px;">
+                <i class="fa-solid fa-bag-shopping" style="color:var(--porto-primary); font-size:20px;"></i>
+                <h3 style="font-size:17px; font-weight:800; color:#222529; margin:0;">حقيبة المشتريات (<span id="drawerItemsCount">0</span>)</h3>
+            </div>
+            <button class="btn-close-drawer" onclick="closeCartDrawer()" style="background:none; border:none; font-size:22px; color:#888; cursor:pointer;">&times;</button>
+        </div>
+        <div class="drawer-body" id="drawerCartList" style="padding:15px 20px; flex:1; overflow-y:auto; max-height:calc(100vh - 240px);">
+        </div>
+        <div class="drawer-footer" style="padding:18px 20px; border-top:1px solid #EAEAEA; background:#FBFBFA;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; font-size:15px; font-weight:800; color:#222529;">
+                <span>المجموع الفرعي:</span>
+                <span id="drawerSubtotal" style="color:var(--porto-primary); font-size:18px;">0.00 ر.س</span>
+            </div>
+            <div style="font-size:11.5px; color:#059669; margin-bottom:14px; background:#ECFDF5; padding:6px 10px; border-radius:4px; display:flex; align-items:center; gap:6px;">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>مؤهل للشحن القياسي المجاني!</span>
+            </div>
+            <button onclick="proceedRozanaWhatsAppCheckout()" class="btn-checkout" style="width:100%; background:#25D366; color:#fff; border:none; padding:13px 20px; border-radius:6px; font-weight:800; font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; box-shadow:0 6px 18px rgba(37,211,102,0.35);">
+                <i class="fa-brands fa-whatsapp" style="font-size:20px;"></i>
+                <span>إتمام الطلب السريع عبر واتساب</span>
+            </button>
+            <button onclick="closeCartDrawer()" style="width:100%; background:none; border:1px solid #D5DCE2; color:#555; padding:9px; border-radius:6px; font-weight:700; font-size:13px; margin-top:8px; cursor:pointer;">
+                متابعة التسوق
+            </button>
+        </div>
+    </div>
+
+    <div class="slide-drawer" id="mobileNavDrawer" style="right: 0; left: auto; transform: translateX(100%);">
+        <div class="drawer-header" style="display:flex; align-items:center; justify-content:space-between; padding:16px 20px; border-bottom:1px solid #EAEAEA;">
+            <div class="logo-title" style="font-size:18px; font-weight:900;">PORTO <span style="color:var(--porto-primary);">MODEST</span></div>
+            <button class="btn-close-drawer" onclick="closeMobileDrawer()" style="background:none; border:none; font-size:22px; color:#888; cursor:pointer;">&times;</button>
+        </div>
+        <div class="drawer-body" style="padding:15px 20px;">
+            <ul style="list-style:none;">
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="index.html" style="font-weight:700; color:#222529;"><i class="fa-solid fa-house" style="margin-left:8px; color:var(--porto-primary);"></i> الرئيسية</a></li>
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="shop.html" style="font-weight:700; color:#222529;"><i class="fa-solid fa-store" style="margin-left:8px; color:var(--porto-primary);"></i> المتجر الكامل</a></li>
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="category.html?cat=abayas" style="font-weight:700; color:#222529;"><i class="fa-solid fa-shirt" style="margin-left:8px; color:var(--porto-primary);"></i> العبايات الفاخرة</a></li>
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="category.html?cat=dresses" style="font-weight:700; color:#222529;"><i class="fa-solid fa-vest" style="margin-left:8px; color:var(--porto-primary);"></i> فساتين المناسبات</a></li>
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="category.html?cat=casual" style="font-weight:700; color:#222529;"><i class="fa-solid fa-layer-group" style="margin-left:8px; color:var(--porto-primary);"></i> أطقم كاجوال</a></li>
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="category.html?cat=scarves" style="font-weight:700; color:#222529;"><i class="fa-solid fa-ribbon" style="margin-left:8px; color:var(--porto-primary);"></i> طرح وشيلات</a></li>
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="category.html?cat=bags" style="font-weight:700; color:#222529;"><i class="fa-solid fa-bag-shopping" style="margin-left:8px; color:var(--porto-primary);"></i> حقائب وإكسسوارات</a></li>
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="about.html" style="font-weight:700; color:#222529;"><i class="fa-solid fa-gem" style="margin-left:8px; color:var(--porto-primary);"></i> عن دار روزانا</a></li>
+                <li style="border-bottom:1px solid #F0F0F0; padding:12px 0;"><a href="contact.html" style="font-weight:700; color:#222529;"><i class="fa-solid fa-headset" style="margin-left:8px; color:var(--porto-primary);"></i> تواصل معنا</a></li>
+                <li style="padding:14px 0;"><a href="admin/index.html" style="font-weight:800; color:var(--porto-primary);"><i class="fa-solid fa-lock" style="margin-left:8px;"></i> لوحة الإدارة (Admin PIN: 1234)</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/201027093535" target="_blank" class="furn-floating-whatsapp" style="position:fixed; bottom:25px; right:25px; width:60px; height:60px; background:#25D366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; box-shadow:0 8px 25px rgba(37,211,102,0.4); z-index:9999; text-decoration:none;" title="تواصل معنا عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="js/store.js"></script>
+
+
+    <script>
+        let currentProduct = null;
+        let selectedSize = '54';
+        let currentQty = 1;
+
+        const catalogProducts = [{"id": 1, "name": "عباية كريب ياباني ملكية بتطريز يدوي فاخر", "category": "abayas", "categoryName": "عبايات فاخرة • ABAYAS", "price": 420, "oldPrice": 599, "badge": "خصم 30%", "featured": true, "newArrival": false, "rating": 5, "reviews": 28, "image": "images/prod_abaya.jpg", "desc": "مصنوعة من أرقى أقمشة الكريب الياباني الفاخر المقاوم للتجعد، مطرزة يدوياً بخيوط حريرية على الأكمام والأطراف مع طرحة مجانية مطابقة.", "sizes": ["52", "54", "56", "58"], "colors": ["أسود ملكي", "كحلي داكن"], "fabric": "كريب ياباني ملكي ثقيل مات"}, {"id": 2, "name": "فستان سهرة شيفون زمردي بأكمام ملكية محتشمة", "category": "dresses", "categoryName": "فساتين المناسبات • EVENING", "price": 680, "oldPrice": 850, "badge": "الأكثر طلباً", "featured": true, "newArrival": false, "rating": 5, "reviews": 42, "image": "images/prod_emerald_dress.jpg", "desc": "فستان سهرة راقي بقصة محتشمة انسيابية من الشيفون الحريري المبطن بالساتان، مزين بتطريزات براقة ناعمة على الياقة لإطلالة تخطف الأنظار.", "sizes": ["S", "M", "L", "XL"], "colors": ["زمردي ملكي", "عنابي مخملي"], "fabric": "شيفون حريري طبيعي مع بطانة ساتان ناعمة"}, {"id": 3, "name": "طقم قطعتين من الكتان الطبيعي بلون بيج رملي", "category": "casual", "categoryName": "أطقم كاجوال • CASUAL SETS", "price": 320, "oldPrice": 410, "badge": "جديد", "featured": true, "newArrival": false, "rating": 5, "reviews": 19, "image": "images/prod_linen_set.jpg", "desc": "طقم كاجوال عصري ومريح للغاية مؤلف من بليزر واسع مع بنطال فضفاض بقماش الكتان الطبيعي 100%، مثالي للإطلالات اليومية والعمل.", "sizes": ["M", "L", "XL"], "colors": ["بيج رملي", "أبيض عاجي", "زيتي هادئ"], "fabric": "كتان طبيعي نقي 100% بارد وصحي"}, {"id": 4, "name": "حقيبة كتف جلد طبيعي بحلية ذهبية راقية", "category": "bags", "categoryName": "حقائب وإكسسوارات • BAGS", "price": 295, "oldPrice": 365, "badge": "مميز", "featured": true, "newArrival": false, "rating": 5, "reviews": 35, "image": "images/prod_black_bag.jpg", "desc": "حقيبة يد وكتف مصممة من أفخم أنواع الجلد الطبيعي المحبب مع قفل معدني مذهب وسلسلة أنيقة قابلة للتعديل.", "sizes": ["مقاس موحد 28x18 سم"], "colors": ["أسود", "هافان كلاسيك"], "fabric": "جلد بقر طبيعي محبب عالي المتانة"}, {"id": 5, "name": "طرحة حرير كريب ملكية بأطراف ليزر", "category": "scarves", "categoryName": "طرح وشيلات • SCARVES", "price": 105, "oldPrice": 145, "badge": "HOT", "featured": false, "newArrival": true, "rating": 5, "reviews": 14, "image": "images/prod_scarf.jpg", "desc": "طرحة حريرية انسيابية خفيفة وباردة مع قص ليزر دقيق وثبات رائع بدون انزلاق.", "sizes": ["طول 200 سم × عرض 70 سم"], "colors": ["أسود", "بيج كشمير", "رمادي لؤلؤي"], "fabric": "حرير كريب ياباني ناعم غير شفاف"}, {"id": 6, "name": "عباية بشت مطرزة بخيوط القصب الذهبي", "category": "abayas", "categoryName": "عبايات كوتور • COUTURE", "price": 490, "oldPrice": 620, "badge": "كوتور", "featured": false, "newArrival": true, "rating": 5, "reviews": 22, "image": "images/prod_bisht.jpg", "desc": "تصميم بشت خليجي فاخر بقماش صالونا كوري وتطريز يدوي على الياقة بنقوش القصب التراثي المذهب.", "sizes": ["52", "54", "56", "58"], "colors": ["أسود فاحم"], "fabric": "صالونا كوري أصلي نخب أول"}, {"id": 7, "name": "فستان موف كريب بأكمام كلوش محتشمة", "category": "dresses", "categoryName": "فساتين سهرة • DRESSES", "price": 540, "oldPrice": 665, "badge": "خصم 20%", "featured": false, "newArrival": true, "rating": 5, "reviews": 17, "image": "images/prod_mauve_dress.jpg", "desc": "فستان هادئ وراقي بقماش الكريب الإيطالي المات مع أكمام كلوش وطبقات ناعمة تمنحك احتشاماً وأناقة بالغة.", "sizes": ["M", "L", "XL"], "colors": ["موف لافندر", "وردي بودري"], "fabric": "كريب إيطالي مزدوج بارد"}, {"id": 8, "name": "كلاتش سهرة مذهب مرصع بحلية كريستال", "category": "bags", "categoryName": "كلاتش ومحافظ • CLUTCH", "price": 210, "oldPrice": 280, "badge": "سهرة", "featured": false, "newArrival": true, "rating": 5, "reviews": 9, "image": "images/prod_clutch.jpg", "desc": "حقيبة كلاتش مخصصة للمناسبات والسهرات بتصميم صلب مرصع بكريستالات لامعة وقفل مغناطيسي قوي.", "sizes": ["مقاس سهرة 20x12 سم"], "colors": ["ذهبي ملوكي", "فضي براق"], "fabric": "هيكل معدني مذهب مكسو بالساتان والكريستال"}, {"id": 9, "name": "عباية صيفية لينن خفيف بقصة نص كلوش", "category": "abayas", "categoryName": "عبايات صيفية • SUMMER", "price": 380, "oldPrice": 470, "badge": "صيفي", "featured": true, "newArrival": false, "rating": 5, "reviews": 31, "image": "images/prod_summer_abaya.jpg", "desc": "عباية يومية خفيفة الوزن مصممة لأجواء الصيف بقماش اللينن الطبيعي مع تقفيلة طق طق مخفية.", "sizes": ["52", "54", "56", "58"], "colors": ["كحلي صيفي", "بيج ناعم"], "fabric": "لينن ناعم خفيف وبارد"}];
+
+        function loadProductDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = parseInt(urlParams.get('id')) || 1;
+
+            let productsList = catalogProducts;
+            try {
+                const raw = localStorage.getItem('rozana_store_data');
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (parsed.products && parsed.products.length > 0) productsList = parsed.products;
+                }
+            } catch(e) {}
+
+            currentProduct = productsList.find(p => p.id === id) || productsList[0];
+
+            // Fill page
+            document.title = currentProduct.name + ' | روزانا فاشن';
+            document.getElementById('crumbCat').textContent = currentProduct.categoryName || 'أزياء محتشمة';
+            document.getElementById('crumbTitle').textContent = currentProduct.name;
+            document.getElementById('mainProdImg').src = currentProduct.image;
+            document.getElementById('prodBadgeEl').textContent = currentProduct.badge || 'جديد';
+            document.getElementById('prodCatTitle').textContent = currentProduct.categoryName || currentProduct.category;
+            document.getElementById('prodTitle').textContent = currentProduct.name;
+            document.getElementById('prodPrice').textContent = currentProduct.price.toLocaleString() + ' ر.س';
+            
+            if (currentProduct.oldPrice) {
+                document.getElementById('prodOldPrice').textContent = currentProduct.oldPrice.toLocaleString() + ' ر.س';
+                const diff = Math.round(((currentProduct.oldPrice - currentProduct.price) / currentProduct.oldPrice) * 100);
+                document.getElementById('prodDiscountBadge').textContent = 'وفر ' + diff + '%';
+            } else {
+                document.getElementById('prodOldPrice').style.display = 'none';
+                document.getElementById('prodDiscountBadge').style.display = 'none';
+            }
+
+            if (currentProduct.desc) {
+                document.getElementById('prodDesc').textContent = currentProduct.desc;
+            }
+            if (currentProduct.fabric) {
+                document.getElementById('fabricDetail').textContent = currentProduct.fabric;
+            }
+
+            // Render sizes
+            if (currentProduct.sizes && currentProduct.sizes.length > 0) {
+                selectedSize = currentProduct.sizes[0];
+                document.getElementById('sizesRow').innerHTML = currentProduct.sizes.map((s, idx) => `
+                    <button class="size-pill-btn ${idx === 0 ? 'active' : ''}" onclick="selectSize('${s}', this)">${s}</button>
+                `).join('');
+            }
+        }
+
+        function selectSize(size, btn) {
+            selectedSize = size;
+            document.querySelectorAll('.size-pill-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+
+        function changeQty(delta) {
+            currentQty = Math.max(1, currentQty + delta);
+            document.getElementById('prodQtyInput').value = currentQty;
+        }
+
+        function addCurrentProductToCart() {
+            if (!currentProduct) return;
+            for (let i = 0; i < currentQty; i++) {
+                addToRozanaCart(currentProduct.id, currentProduct.name, currentProduct.price, currentProduct.image, selectedSize);
+            }
+        }
+
+        function orderCurrentProductViaWhatsApp() {
+            if (!currentProduct) return;
+            const phone = '201027093535';
+            const total = currentProduct.price * currentQty;
+            const msg = `*طلب شراء مباشر عبر واتساب من روزانا فاشن* ✨👘%0a%0a` +
+                        `القطعة: *${currentProduct.name}*%0a` +
+                        `المقاس المختار: *${selectedSize}*%0a` +
+                        `الكمية: *${currentQty}*%0a` +
+                        `السعر الإجمالي: *${total} ر.س*%0a%0a` +
+                        `أرجو تأكيد الطلب وتحديد موعد التوصيل. شكراً لكِ!`;
+            window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+        }
+
+        function switchProdTab(tabId, btn) {
+            document.querySelectorAll('.tab-content-panel').forEach(p => p.style.display = 'none');
+            document.querySelectorAll('.tab-btn-title').forEach(b => b.classList.remove('active'));
+            const target = document.getElementById(tabId);
+            if (target) target.style.display = 'block';
+            if (btn) btn.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', loadProductDetails);
+    </script>
+</body>
+</html>

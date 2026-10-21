@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>متجر روزانا فاشن للأزياء النسائية المحتشمة | PORTO MODEST</title>
+    <meta name="description" content="تسوقي أرقى العبايات الخليجية الفاخرة، فساتين المناسبات المحتشمة، وأطقم الكتان الطبيعي من دار روزانا فاشن بتوصيل مجاني وضمان ذهبي.">
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+</head>
+<body>
+
+    <!-- OVERLAY FOR DRAWERS -->
+    <div class="drawer-overlay" id="drawerOverlay" onclick="closeAllDrawers()"></div>
+
+    <!-- 1. TOP ANNOUNCEMENT BAR (Porto Style) -->
+    <header class="porto-topbar">
+        <div class="container topbar-inner">
+            <div class="topbar-msg">
+                <span class="badge-tag">شحن مجاني</span>
+                <span>توصيل قياسي مجاني للطلبات فوق 299 ر.س لجميع مدن المملكة والخليج</span>
+            </div>
+            <div class="topbar-links"><a href="admin/index.html" style="color:#0088CC; font-weight:700;"><i class="fa-solid fa-lock"></i> لوحة الإدارة</a><span class="topbar-divider"></span>
+                <a href="shop.html">حسابي</a>
+                <span class="topbar-divider"></span>
+                <a href="contact.html">تواصلي معنا</a>
+                <span class="topbar-divider"></span>
+                <a href="#blog">مجلة الأناقة</a>
+                <span class="topbar-divider"></span>
+                <a href="javascript:void(0)" onclick="openWishlist()">قائمة الأمنيات</a>
+                <span class="topbar-divider"></span>
+                <span>SAR (ر.س)</span>
+                <span class="topbar-divider"></span>
+                <div class="topbar-social">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-snapchat"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. MAIN HEADER (Porto Shop 4) -->
+    <section class="porto-header">
+        <div class="container header-inner">
+            
+            <!-- Mobile Menu Toggle Button -->
+            <button class="icon-btn-porto" id="openMobMenuBtn" style="display: flex; @media (min-width: 992px) { display: none; }">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Brand Logo -->
+            <a href="#" class="header-logo">
+                <div class="logo-symbol">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <div class="logo-text-wrap">
+                    <div class="logo-title">PORTO <span>MODEST</span></div>
+                    <div class="logo-sub">دار الأزياء والعبايات المحتشمة</div>
+                </div>
+            </a>
+
+            <!-- Search Form -->
+            <div class="header-search-wrap">
+                <form class="header-searchform" onsubmit="event.preventDefault(); triggerSearch();">
+                    <input type="text" id="searchInput" class="search-input" placeholder="ابحثي عن عباية، فستان سهرة، أو كولكشن محتشم...">
+                    <select class="search-cat-select" id="searchCategory">
+                        <option value="all">جميع الأقسام</option>
+                        <option value="abayas">العبايات الفاخرة</option>
+                        <option value="dresses">فساتين المناسبات</option>
+                        <option value="casual">كولكشن كاجوال</option>
+                        <option value="scarves">طرح وشيلات حرير</option>
+                        <option value="bags">حقائب وإكسسوارات</option>
+                    </select>
+                    <button type="submit" class="search-submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+
+            <!-- Hotline & Actions -->
+            <div class="header-actions">
+                <div class="header-hotline">
+                    <i class="fa-solid fa-phone-volume hotline-icon"></i>
+                    <div class="hotline-info">
+                        <span class="hotline-label">خدمة العملاء المجانية</span>
+                        <span class="hotline-number">800-440-9000</span>
+                    </div>
+                </div>
+
+                <div class="action-icons-group">
+                    <button class="icon-btn-porto" onclick="openWishlist()" title="قائمة الأمنيات">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="cart-badge-count" id="wishlistBadge">0</span>
+                    </button>
+                    
+                    <div class="header-cart-box" id="openCartBtn" title="عرض حقيبة المشتريات">
+                        <div class="icon-btn-porto" style="pointer-events: none;">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span class="cart-badge-count" id="cartCountBadge">2</span>
+                        </div>
+                        <div class="cart-info-text">
+                            <span class="cart-info-label">سلة المشتريات</span>
+                            <span class="cart-info-total" id="headerCartTotal">740 ر.س</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. NAVIGATION BAR (Porto Categories + Main Menu) -->
+    <nav class="porto-navbar">
+        <div class="container navbar-inner">
+            
+            <div class="nav-left-group">
+                <!-- Shop by Category Button -->
+                <button class="btn-shop-by-category" id="catMenuToggleBtn">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>تصفح الأقسام | CATEGORIES</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size: 11px;"></i>
+                </button>
+
+                <!-- Category Dropdown -->
+                <div class="cat-dropdown-menu" id="catDropdownMenu">
+                    <a href="shop.html" class="cat-dropdown-item" onclick="filterByCat('abayas')">
+                        <span><i class="fa-solid fa-shirt" style="margin-left: 8px; color: var(--porto-primary);"></i> العبايات الفاخرة</span>
+                        <span class="nav-badge-hot">HOT</span>
+                    </a>
+                    <a href="shop.html" class="cat-dropdown-item" onclick="filterByCat('dresses')">
+                        <span><i class="fa-solid fa-vest" style="margin-left: 8px; color: var(--porto-primary);"></i> فساتين المناسبات المحتشمة</span>
+                        <span class="nav-badge-new">NEW</span>
+                    </a>
+                    <a href="shop.html" class="cat-dropdown-item" onclick="filterByCat('casual')">
+                        <span><i class="fa-solid fa-layer-group" style="margin-left: 8px; color: var(--porto-primary);"></i> أطقم وبليزرات كاجوال</span>
+                        <i class="fa-solid fa-angle-left" style="font-size: 11px; color: #BBB;"></i>
+                    </a>
+                    <a href="shop.html" class="cat-dropdown-item" onclick="filterByCat('scarves')">
+                        <span><i class="fa-solid fa-ribbon" style="margin-left: 8px; color: var(--porto-primary);"></i> طرح وشيلات حرير طبيعي</span>
+                        <i class="fa-solid fa-angle-left" style="font-size: 11px; color: #BBB;"></i>
+                    </a>
+                    <a href="shop.html" class="cat-dropdown-item" onclick="filterByCat('bags')">
+                        <span><i class="fa-solid fa-bag-shopping" style="margin-left: 8px; color: var(--porto-primary);"></i> حقائب وإكسسوارات راقية</span>
+                        <i class="fa-solid fa-angle-left" style="font-size: 11px; color: #BBB;"></i>
+                    </a>
+                </div>
+
+                <!-- Main Menu -->
+                <ul class="nav-links-list">
+                    <li><a href="#" class="nav-item-link active">الرئيسية</a></li>
+                    <li><a href="shop.html" class="nav-item-link">العبايات <span class="nav-badge-hot">HOT</span></a></li>
+                    <li><a href="shop.html" class="nav-item-link">فساتين المناسبات</a></li>
+                    <li><a href="shop.html" class="nav-item-link">كولكشن الخريف <span class="nav-badge-new">NEW</span></a></li>
+                    <li><a href="shop.html?filter=sale" class="nav-item-link">العروض والتخفيضات</a></li>
+                    <li><a href="#blog" class="nav-item-link">مجلة الأناقة</a></li>
+                    <li><a href="contact.html" class="nav-item-link">تواصل معنا</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-promo-right">
+                <i class="fa-solid fa-fire"></i>
+                <span>عروض التصفية: كود إضافي 15% ROSANNA</span>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- 4. BLOCK 1: SIGNATURE HERO BANNER (Porto Shop 4 Style - Full Width) -->
+    <section class="porto-hero-section">
+        <div class="hero-slider-wrap">
+            
+            <div class="hero-text-col">
+                <span class="hero-sub-eyebrow">Find the Boundaries. Push Through! • كولكشن الأناقة والوقار</span>
+                <span class="hero-script-title" style="font-family: 'Caveat', cursive; font-size: 64px;">Summer Sale</span>
+                <h1 class="hero-giant-heading" style="text-align: right;"><bdi dir="ltr">70% OFF</bdi></h1>
+                
+                <div class="hero-cta-flex">
+                    <!-- Red starting at price badge -->
+                    <div class="hero-red-price-badge">
+                        <span class="badge-label">تبدأ من / STARTING AT</span>
+                        <span class="badge-val">199.<sup>99</sup> ر.س</span>
+                    </div>
+
+                    <!-- Black solid rectangular CTA button -->
+                    <a href="shop.html" class="hero-btn-dark">
+                        <span>تسوقي الآن! / SHOP NOW!</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Visual Column: Haute Couture Modest Ensemble (Transparent PNG) -->
+            <div class="hero-model-col">
+                <img decoding="async" src="images/hero_couture.png" alt="كولكشن الكوتور الملكي والأزياء المحتشمة" class="hero-model-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. BLOCK 2: FEATURED PRODUCTS (Porto Signature Divider Lines + 4 Columns) -->
+    <section class="container" id="catalog">
+        <div class="porto-divider-heading">
+            <h2>المنتجات المميزة / FEATURED PRODUCTS</h2>
+        </div>
+
+        <div class="porto-products-grid">
+            
+            <!-- Product 1: Abaya -->
+            <div class="porto-prod-card">
+                <div class="porto-prod-thumb-wrap">
+                    <div class="porto-prod-badges">
+                        <span class="p-badge-red">-33%</span>
+                        <span class="p-badge-green">HOT</span>
+                    </div>
+                    <img decoding="async" src="images/prod_abaya.jpg" alt="عباية كريب ياباني ملكية" class="porto-prod-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="porto-prod-actions">
+                        <button class="btn-action-round" onclick="openQuickView(1)" title="معاينة سريعة"><i class="fa-regular fa-eye"></i></button>
+                        <button class="btn-action-cart" onclick="addToCart(1)">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>أضف للسلة</span>
+                        </button>
+                        <button class="btn-action-round" onclick="toggleWishlist(1)" title="المفضلة"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="porto-prod-info">
+                    <span class="porto-prod-cat">عبايات فاخرة • ABAYAS</span>
+                    <h3 class="porto-prod-title"><a href="shop.html">عباية كريب ياباني ملكية بتطريز يدوي فاخر</a></h3>
+                    <div class="porto-prod-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="porto-prod-price">
+                        <span>420.00 ر.س</span>
+                        <span class="old-price">599.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Modest Evening Dress -->
+            <div class="porto-prod-card">
+                <div class="porto-prod-thumb-wrap">
+                    <div class="porto-prod-badges">
+                        <span class="p-badge-green">HOT</span>
+                    </div>
+                    <img decoding="async" src="images/prod_emerald_dress.jpg" alt="فستان سهرة شيفون زمردي" class="porto-prod-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="porto-prod-actions">
+                        <button class="btn-action-round" onclick="openQuickView(2)" title="معاينة سريعة"><i class="fa-regular fa-eye"></i></button>
+                        <button class="btn-action-cart" onclick="addToCart(2)">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>أضف للسلة</span>
+                        </button>
+                        <button class="btn-action-round" onclick="toggleWishlist(2)" title="المفضلة"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="porto-prod-info">
+                    <span class="porto-prod-cat">فساتين المناسبات • EVENING</span>
+                    <h3 class="porto-prod-title"><a href="shop.html">فستان سهرة شيفون زمردي بأكمام ملكية محتشمة</a></h3>
+                    <div class="porto-prod-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="porto-prod-price">
+                        <span>680.00 ر.س</span>
+                        <span class="old-price">850.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3: Casual Linen Set -->
+            <div class="porto-prod-card">
+                <div class="porto-prod-thumb-wrap">
+                    <div class="porto-prod-badges">
+                        <span class="p-badge-green">HOT</span>
+                    </div>
+                    <img decoding="async" src="images/prod_linen_set.jpg" alt="طقم كتان نسائي كاجوال" class="porto-prod-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="porto-prod-actions">
+                        <button class="btn-action-round" onclick="openQuickView(3)" title="معاينة سريعة"><i class="fa-regular fa-eye"></i></button>
+                        <button class="btn-action-cart" onclick="addToCart(3)">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>أضف للسلة</span>
+                        </button>
+                        <button class="btn-action-round" onclick="toggleWishlist(3)" title="المفضلة"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="porto-prod-info">
+                    <span class="porto-prod-cat">أطقم كاجوال • CASUAL SETS</span>
+                    <h3 class="porto-prod-title"><a href="shop.html">طقم قطعتين من الكتان الطبيعي بلون بيج رملي</a></h3>
+                    <div class="porto-prod-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <div class="porto-prod-price">
+                        <span>320.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4: Leather Bag -->
+            <div class="porto-prod-card">
+                <div class="porto-prod-thumb-wrap">
+                    <div class="porto-prod-badges">
+                        <span class="p-badge-green">HOT</span>
+                        <span class="p-badge-red">-19%</span>
+                    </div>
+                    <img decoding="async" src="images/prod_black_bag.jpg" alt="حقيبة يد جلد طبيعي" class="porto-prod-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="porto-prod-actions">
+                        <button class="btn-action-round" onclick="openQuickView(4)" title="معاينة سريعة"><i class="fa-regular fa-eye"></i></button>
+                        <button class="btn-action-cart" onclick="addToCart(4)">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>أضف للسلة</span>
+                        </button>
+                        <button class="btn-action-round" onclick="toggleWishlist(4)" title="المفضلة"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="porto-prod-info">
+                    <span class="porto-prod-cat">حقائب وإكسسوارات • BAGS</span>
+                    <h3 class="porto-prod-title"><a href="shop.html">حقيبة كتف جلد طبيعي بحلية ذهبية راقية</a></h3>
+                    <div class="porto-prod-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="porto-prod-price">
+                        <span>295.00 ر.س</span>
+                        <span class="old-price">365.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. BLOCK 3: NEW ARRIVALS (Porto Signature with Gray Boxed Product Thumbnails) -->
+    <section class="container">
+        <div class="porto-divider-heading">
+            <h2>وصل حديثاً / NEW ARRIVALS</h2>
+        </div>
+
+        <div class="porto-products-grid">
+            
+            <!-- Item 1 -->
+            <div class="porto-prod-card">
+                <div class="porto-prod-thumb-wrap boxed-gray">
+                    <div class="porto-prod-badges">
+                        <span class="p-badge-green">HOT</span>
+                    </div>
+                    <img decoding="async" src="images/prod_scarf.jpg" alt="طرحة حرير" class="porto-prod-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="porto-prod-actions">
+                        <button class="btn-action-round" onclick="openQuickView(1)" title="معاينة"><i class="fa-regular fa-eye"></i></button>
+                        <button class="btn-action-cart" onclick="addToCart(1)">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>أضف للسلة</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="porto-prod-info">
+                    <span class="porto-prod-cat">طرح وشيلات • SCARVES</span>
+                    <h3 class="porto-prod-title"><a href="shop.html">طرحة حرير كريب ملكية بأطراف ليزر</a></h3>
+                    <div class="porto-prod-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="porto-prod-price">
+                        <span>105.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="porto-prod-card">
+                <div class="porto-prod-thumb-wrap boxed-gray">
+                    <img decoding="async" src="images/prod_bisht.jpg" alt="عباية كوتور" class="porto-prod-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="porto-prod-actions">
+                        <button class="btn-action-round" onclick="openQuickView(2)" title="معاينة"><i class="fa-regular fa-eye"></i></button>
+                        <button class="btn-action-cart" onclick="addToCart(2)">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>أضف للسلة</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="porto-prod-info">
+                    <span class="porto-prod-cat">عبايات كوتور • COUTURE</span>
+                    <h3 class="porto-prod-title"><a href="shop.html">عباية بشت مطرزة بخيوط القصب الذهبي</a></h3>
+                    <div class="porto-prod-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="porto-prod-price">
+                        <span>490.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="porto-prod-card">
+                <div class="porto-prod-thumb-wrap boxed-gray">
+                    <div class="porto-prod-badges">
+                        <span class="p-badge-green">HOT</span>
+                        <span class="p-badge-red">-19%</span>
+                    </div>
+                    <img decoding="async" src="images/prod_mauve_dress.jpg" alt="فستان مناسبات" class="porto-prod-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="porto-prod-actions">
+                        <button class="btn-action-round" onclick="openQuickView(3)" title="معاينة"><i class="fa-regular fa-eye"></i></button>
+                        <button class="btn-action-cart" onclick="addToCart(3)">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>أضف للسلة</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="porto-prod-info">
+                    <span class="porto-prod-cat">فساتين سهرة • DRESSES</span>
+                    <h3 class="porto-prod-title"><a href="shop.html">فستان موف كريب بأكمام كلوش محتشمة</a></h3>
+                    <div class="porto-prod-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="porto-prod-price">
+                        <span>540.00 ر.س</span>
+                        <span class="old-price">665.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="porto-prod-card">
+                <div class="porto-prod-thumb-wrap boxed-gray">
+                    <div class="porto-prod-badges">
+                        <span class="p-badge-green">HOT</span>
+                    </div>
+                    <img decoding="async" src="images/prod_clutch.jpg" alt="كلاتش سهرة" class="porto-prod-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="porto-prod-actions">
+                        <button class="btn-action-round" onclick="openQuickView(4)" title="معاينة"><i class="fa-regular fa-eye"></i></button>
+                        <button class="btn-action-cart" onclick="addToCart(4)">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span>أضف للسلة</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="porto-prod-info">
+                    <span class="porto-prod-cat">كلاتش ومحافظ • CLUTCH</span>
+                    <h3 class="porto-prod-title"><a href="shop.html">كلاتش سهرة مذهب مرصع بحلية كريستال</a></h3>
+                    <div class="porto-prod-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="porto-prod-price">
+                        <span>220.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. BLOCK 4: BIG SALE BLUE BANNER (Porto Signature) -->
+    <section class="porto-big-sale-bar" id="sale">
+        <div class="container sale-bar-inner">
+            <div class="sale-bar-left">
+                <span class="pill-big-sale">BIG SALE</span>
+                <div class="sale-bar-text">
+                    <h3>أقوى عروض البراندات والأزياء المحتشمة بخصومات تصل حتى 70%</h3>
+                    <span>Online Purchases Only | للشراء عبر المتجر الإلكتروني لفترة محدودة</span>
+                </div>
+            </div>
+            <a href="shop.html" class="btn-view-sale-white">
+                <span>عرض التخفيضات / VIEW SALE</span>
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. BLOCK 5: BROWSE OUR CATEGORIES (5 Circles) -->
+    <section class="container">
+        <div class="porto-divider-heading">
+            <h2>تصفحي الأقسام / BROWSE OUR CATEGORIES</h2>
+        </div>
+
+        <div class="porto-circular-cats">
+            
+            <div class="cat-circle-card" onclick="filterByCat('abayas')">
+                <div class="cat-circle-wrap">
+                    <img decoding="async" src="images/prod_abaya.jpg" alt="عبايات فاخرة" class="cat-circle-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                </div>
+                <h4 class="cat-circle-name">عبايات فاخرة</h4>
+                <span class="cat-circle-count">48 منتج متاح</span>
+            </div>
+
+            <div class="cat-circle-card" onclick="filterByCat('dresses')">
+                <div class="cat-circle-wrap">
+                    <img decoding="async" src="images/prod_emerald_dress.jpg" alt="فساتين المناسبات" class="cat-circle-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                </div>
+                <h4 class="cat-circle-name">فساتين المناسبات</h4>
+                <span class="cat-circle-count">35 فستان راقي</span>
+            </div>
+
+            <div class="cat-circle-card" onclick="filterByCat('casual')">
+                <div class="cat-circle-wrap">
+                    <img decoding="async" src="images/prod_linen_set.jpg" alt="أطقم كاجوال" class="cat-circle-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                </div>
+                <h4 class="cat-circle-name">أطقم كاجوال</h4>
+                <span class="cat-circle-count">24 طقم يومي</span>
+            </div>
+
+            <div class="cat-circle-card" onclick="filterByCat('scarves')">
+                <div class="cat-circle-wrap">
+                    <img decoding="async" src="images/prod_scarf.jpg" alt="طرح وشيلات" class="cat-circle-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                </div>
+                <h4 class="cat-circle-name">طرح وشيلات</h4>
+                <span class="cat-circle-count">60 شيلة حرير</span>
+            </div>
+
+            <div class="cat-circle-card" onclick="filterByCat('bags')">
+                <div class="cat-circle-wrap">
+                    <img decoding="async" src="images/prod_black_bag.jpg" alt="حقائب وإكسسوارات" class="cat-circle-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                </div>
+                <h4 class="cat-circle-name">حقائب وإكسسوارات</h4>
+                <span class="cat-circle-count">30 قطعة حصرية</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. BLOCK 6: 3 FEATURE PILLARS (Outlined Blue Circles) -->
+    <section class="porto-features-section">
+        <div class="container">
+            <div class="features-grid-3">
+                
+                <div class="feature-box-porto">
+                    <div class="feature-icon-ring">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h4 class="feature-box-title">خدمة عملاء راقية 24/7</h4>
+                    <div class="feature-box-sub">CUSTOMER SUPPORT - لن تكوني وحدكِ</div>
+                    <p class="feature-box-desc">فريق استشاري نسائي متخصص لمساعدتك في تنسيق الإطلالة واختيار المقاس الأمثل على مدار الساعة.</p>
+                </div>
+
+                <div class="feature-box-porto">
+                    <div class="feature-icon-ring">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                    <h4 class="feature-box-title">تفصيل وتعديل المقاسات مجاناً</h4>
+                    <div class="feature-box-sub">FULLY CUSTOMIZABLE - خيارات لا محدودة</div>
+                    <p class="feature-box-desc">إمكانية تعديل الطول والأكمام أو تفصيل القطعة على مقاسكِ الدقيق مع خيارات تقسيط ميسرة تابي وتمارا.</p>
+                </div>
+
+                <div class="feature-box-porto">
+                    <div class="feature-icon-ring">
+                        <i class="fa-solid fa-rotate-left"></i>
+                    </div>
+                    <h4 class="feature-box-title">استبدال فوري وضمان ذهبي</h4>
+                    <div class="feature-box-sub">EASY RETURNS - صُمم لراحتكِ التامة</div>
+                    <p class="feature-box-desc">استبدال واسترجاع مجاني خلال 14 يوماً من الاستلام مع ضمان ذهبي 100% على جودة الأقمشة وتطريزاتها.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. BLOCK 7: DARK DEALS STRIP (TOP FASHION DEALS) -->
+    <section class="porto-dark-deals">
+        <div class="container deals-inner-content">
+            <div class="deals-giant-text">
+                TOP FASHION DEALS - UP TO <span>70% OFF</span>
+            </div>
+            <p style="font-size: 15px; opacity: 0.9; margin-bottom: 12px;">
+                تشكيلة الكوتور والعبايات المخملية بأسعار استثنائية لموسم الأعياد
+            </p>
+            <div class="deals-coupon-tag">
+                استخدمي الكود <strong>ROSANNA</strong> للحصول على خصم إضافي 15% عند الدفع
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. BLOCK 8: LATEST NEWS (4 Blog Cards with Square Date Badges) -->
+    <section class="container" id="blog">
+        <div class="porto-divider-heading">
+            <h2>أحدث المقالات / LATEST NEWS</h2>
+        </div>
+
+        <div class="porto-blog-grid">
+            
+            <article class="blog-card-porto">
+                <div class="blog-thumb-box">
+                    <div class="blog-square-date">
+                        <span class="date-day">26</span>
+                        <span class="date-month">FEB</span>
+                    </div>
+                    <img decoding="async" src="images/prod_bisht.jpg" alt="تنسيق العبايات" class="blog-thumb-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                </div>
+                <h3 class="blog-title-porto"><a href="#blog">دليل التنسيق: كيف تختارين قماش العباية المثالي لكل مناسبة؟</a></h3>
+                <p class="blog-excerpt-porto">مقارنة شاملة بين خامات الكريب السعودي، الحرير المغسول، والكتان الطبيعي لإطلالة راقية ومريحة.</p>
+                <span class="blog-footer-meta">1 تعليق • اقرئي المزيد</span>
+            </article>
+
+            <article class="blog-card-porto">
+                <div class="blog-square-date">
+                    <span class="date-day">21</span>
+                    <span class="date-month">FEB</span>
+                </div>
+                <img decoding="async" src="images/prod_mauve_dress.jpg" alt="ألوان الموسم" class="blog-thumb-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                <h3 class="blog-title-porto"><a href="#blog">ألوان الموسم: درجات الباستيل والزمردي تسيطر على مناسبات 2026</a></h3>
+                <p class="blog-excerpt-porto">أسرار اختيار درجات الألوان الهادئة والمحتشمة التي تبرز فخامة فستانك في الحفلات المسائية والخطوبة.</p>
+                <span class="blog-footer-meta">3 تعليقات • اقرئي المزيد</span>
+            </article>
+
+            <article class="blog-card-porto">
+                <div class="blog-square-date">
+                    <span class="date-day">15</span>
+                    <span class="date-month">FEB</span>
+                </div>
+                <img decoding="async" src="images/prod_summer_abaya.jpg" alt="العناية بالأقمشة" class="blog-thumb-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                <h3 class="blog-title-porto"><a href="#blog">طرق العناية الصحيحة بالملابس المطرزة والطرح الحريرية النادرة</a></h3>
+                <p class="blog-excerpt-porto">نصائح خبرائنا لغسيل وحفظ قطع الكوتور الثمينة يدوياً لحماية خيوط التطريز الذهبية من التلف.</p>
+                <span class="blog-footer-meta">0 تعليقات • اقرئي المزيد</span>
+            </article>
+
+            <article class="blog-card-porto">
+                <div class="blog-square-date">
+                    <span class="date-day">09</span>
+                    <span class="date-month">FEB</span>
+                </div>
+                <img decoding="async" src="images/prod_clutch.jpg" alt="تناغم الإكسسوارات" class="blog-thumb-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                <h3 class="blog-title-porto"><a href="#blog">تناغم الإكسسوارات: كيف تختارين الحقيبة المثالية لعبايتكِ؟</a></h3>
+                <p class="blog-excerpt-porto">قواعد ذهبية لتنسيق ألوان وأحجام حقائب اليد والكلاتش مع مختلف قصات العبايات الواسعة والكلاسيكية.</p>
+                <span class="blog-footer-meta">2 تعليق • اقرئي المزيد</span>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- 12. BLOCK 9: BRANDS LOGO STRIP (Monochrome Porto Style) -->
+    <div class="porto-brands-strip">
+        <div class="container brands-flex-row">
+            <span class="brand-monochrome-logo">ROSANNA COUTURE</span>
+            <span class="brand-monochrome-logo">ROYAL SILK</span>
+            <span class="brand-monochrome-logo">MEDINA LINEN</span>
+            <span class="brand-monochrome-logo">RIVIERA ATELIER</span>
+            <span class="brand-monochrome-logo">CREPE DE LUXE</span>
+        </div>
+    </div>
+
+    <!-- 13. BLOCK 10: 4-COLUMN BOTTOM MINI-WIDGETS -->
+    <section class="container porto-mini-widgets">
+        <div class="mini-widgets-grid-4">
+            
+            <!-- Column 1: FEATURED -->
+            <div>
+                <h4 class="mini-column-title">القطع المميزة / FEATURED</h4>
+                <div class="mini-item-flex">
+                    <img decoding="async" src="images/prod_abaya.jpg" alt="عباية" class="mini-item-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="mini-item-body">
+                        <span class="mini-item-name"><a href="shop.html">عباية كريب ياباني مطرزة</a></span>
+                        <div class="mini-item-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="mini-item-price">420.00 ر.س</span>
+                    </div>
+                </div>
+                <div class="mini-item-flex">
+                    <img decoding="async" src="images/prod_emerald_dress.jpg" alt="فستان" class="mini-item-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="mini-item-body">
+                        <span class="mini-item-name"><a href="shop.html">فستان سهرة شيفون زمردي</a></span>
+                        <div class="mini-item-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="mini-item-price">680.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2: BEST SELLING -->
+            <div>
+                <h4 class="mini-column-title">الأكثر مبيعاً / BEST SELLING</h4>
+                <div class="mini-item-flex">
+                    <img decoding="async" src="images/prod_linen_set.jpg" alt="طقم" class="mini-item-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="mini-item-body">
+                        <span class="mini-item-name"><a href="shop.html">طقم قطعتين كتان بيج</a></span>
+                        <div class="mini-item-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="mini-item-price">320.00 ر.س</span>
+                    </div>
+                </div>
+                <div class="mini-item-flex">
+                    <img decoding="async" src="images/prod_black_bag.jpg" alt="حقيبة" class="mini-item-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="mini-item-body">
+                        <span class="mini-item-name"><a href="shop.html">حقيبة كتف جلد طبيعي</a></span>
+                        <div class="mini-item-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="mini-item-price">295.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3: LATEST -->
+            <div>
+                <h4 class="mini-column-title">أحدث المنتجات / LATEST</h4>
+                <div class="mini-item-flex">
+                    <img decoding="async" src="images/prod_scarf.jpg" alt="شيلة" class="mini-item-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="mini-item-body">
+                        <span class="mini-item-name"><a href="shop.html">طرحة حرير كريب ملكية</a></span>
+                        <div class="mini-item-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="mini-item-price">105.00 ر.س</span>
+                    </div>
+                </div>
+                <div class="mini-item-flex">
+                    <img decoding="async" src="images/prod_bisht.jpg" alt="عباية" class="mini-item-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="mini-item-body">
+                        <span class="mini-item-name"><a href="shop.html">عباية بشت قصب مذهب</a></span>
+                        <div class="mini-item-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="mini-item-price">490.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 4: TOP RATED -->
+            <div>
+                <h4 class="mini-column-title">الأعلى تقييماً / TOP RATED</h4>
+                <div class="mini-item-flex">
+                    <img decoding="async" src="images/prod_mauve_dress.jpg" alt="فستان" class="mini-item-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="mini-item-body">
+                        <span class="mini-item-name"><a href="shop.html">فستان موف كلوش كوتور</a></span>
+                        <div class="mini-item-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="mini-item-price">540.00 ر.س</span>
+                    </div>
+                </div>
+                <div class="mini-item-flex">
+                    <img decoding="async" src="images/prod_black_bag.jpg" alt="كلاتش" class="mini-item-thumb" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+                    <div class="mini-item-body">
+                        <span class="mini-item-name"><a href="shop.html">كلاتش سهرة مذهب مرصع</a></span>
+                        <div class="mini-item-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span class="mini-item-price">220.00 ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 14. BLOCK 11: COMPREHENSIVE DARK FOOTER (Porto Signature) -->
+    <footer class="porto-footer" id="footer">
+        <div class="container">
+            
+            <!-- Newsletter Bar -->
+            <div class="footer-newsletter-bar">
+                <div class="newsletter-text-box">
+                    <h4>اشتركي في نادي روزانا فاشن للأناقة</h4>
+                    <p>سجلي بريدك الإلكتروني واحصلي فوراً على كود خصم 15% على أول طلب مع أحدث كولكشنات الموسم</p>
+                </div>
+                <form class="newsletter-form-box" onsubmit="event.preventDefault(); subscribeNewsletter();">
+                    <input type="email" id="newsletterEmail" class="newsletter-input-field" placeholder="أدخلي بريدك الإلكتروني..." required>
+                    <button type="submit" class="newsletter-submit-btn">اشتراك</button>
+                </form>
+            </div>
+
+            <!-- Footer Columns -->
+            <div class="footer-cols-grid">
+                
+                <!-- Col 1: About -->
+                <div class="footer-col">
+                    <div class="header-logo" style="margin-bottom: 16px;">
+                        <div class="logo-symbol" style="background: var(--porto-primary);">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="logo-text-wrap">
+                            <div class="logo-title" style="color: #FFFFFF;">PORTO <span>MODEST</span></div>
+                            <div class="logo-sub" style="color: #A0A5AA;">دار الأزياء والعبايات المحتشمة</div>
+                        </div>
+                    </div>
+                    <p>
+                        دار أزياء نسائية متخصصة في تقديم أرقى تصاميم العبايات الخليجية، فساتين المناسبات المحتشمة، وأطقم الكاجوال الراقية بأعلى معايير الجودة والحرفية والوقار.
+                    </p>
+                </div>
+
+                <!-- Col 2: Categories -->
+                <div class="footer-col">
+                    <h5>أقسام المتجر</h5>
+                    <ul class="footer-links-list"><li><a href="admin/index.html"><i class="fa-solid fa-lock"></i> دخول إدارة المتجر (Admin)</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-left"></i> تشكيلة العبايات الفاخرة</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-left"></i> فساتين السهرة المحتشمة</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-left"></i> أطقم العمل والزيارات الكاجوال</a></li>
+                        <li><a href="shop.html"><i class="fa-solid fa-angle-left"></i> شيلات وطرح شيفون وليزر</a></li>
+                        <li><a href="shop.html?filter=sale"><i class="fa-solid fa-angle-left"></i> عروض التصفية الحصرية</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Customer Care -->
+                <div class="footer-col">
+                    <h5>خدمة العملاء</h5>
+                    <ul class="footer-links-list">
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> جدول تحديد المقاسات الدقيق</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> سياسة الاستبدال والاسترجاع (14 يوماً)</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> خيارات الشحن والتوصيل السريع</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> شروط الشراء والضمان الذهبي</a></li>
+                        <li><a href="#"><i class="fa-solid fa-angle-left"></i> الأسئلة الشائعة وتنسيق الأقمشة</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="footer-col">
+                    <h5>تواصلي معنا</h5>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>الرياض، طريق الملك فهد - حي العليا، بوليفارد الأزياء الراقي، المملكة العربية السعودية</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>الرقم الموحد المجاني: 800-440-9000</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>care@rosanna-fashion.com</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Payment -->
+            <div class="footer-bottom-bar">
+                <div>
+                    جميع الحقوق محفوظة © 2026 روزانا فاشن للأزياء المحتشمة • تم التطوير وفق معايير Porto Shop 4 العالمية.
+                </div>
+                <div class="payments-icons">
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-brands fa-apple-pay" title="Apple Pay"></i>
+                    <span style="font-size: 11px; font-weight: 800; border: 1px solid #777; padding: 1px 6px; border-radius: 3px;">مدى MADA</span>
+                    <span style="font-size: 11px; font-weight: 800; border: 1px solid #777; padding: 1px 6px; border-radius: 3px;">تابي TABBY</span>
+                    <span style="font-size: 11px; font-weight: 800; border: 1px solid #777; padding: 1px 6px; border-radius: 3px;">تمارا TAMARA</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- 15. MOBILE BOTTOM DOCK (App-like Navigation) -->
+    <div class="mobile-bottom-dock">
+        <a href="#" class="dock-link-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>الرئيسية</span>
+        </a>
+        <a href="javascript:void(0)" class="dock-link-item" onclick="openCategoriesDrawer()">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>الأقسام</span>
+        </a>
+        <a href="javascript:void(0)" class="dock-link-item" onclick="openWishlist()">
+            <i class="fa-regular fa-heart"></i>
+            <span class="dock-badge" id="mobWishlistCount">0</span>
+            <span>المفضلة</span>
+        </a>
+        <a href="javascript:void(0)" class="dock-link-item" onclick="openCartDrawer()">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="dock-badge" id="mobCartCount">2</span>
+            <span>السلة</span>
+        </a>
+    </div>
+
+    <!-- 16. SLIDE CART DRAWER -->
+    <div class="slide-drawer" id="cartSlideDrawer">
+        <div class="drawer-header">
+            <h3><i class="fa-solid fa-bag-shopping" style="color: var(--porto-primary);"></i> حقيبة المشتريات (<span id="drawerItemsCount">2</span>)</h3>
+            <button class="btn-drawer-close" onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="drawer-body-list" id="drawerCartList">
+            <!-- Items injected by JS -->
+        </div>
+
+        <div class="drawer-footer-actions">
+            <div class="subtotal-row">
+                <span>المجموع الفرعي:</span>
+                <span id="drawerSubtotal" style="color: var(--porto-primary);">740 ر.س</span>
+            </div>
+            <button class="btn-checkout-primary" onclick="proceedCheckout()">
+                <span>إتمام الطلب والدفع الآمن</span>
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- 17. MOBILE NAVIGATION DRAWER -->
+    <div class="slide-drawer" id="mobileNavDrawer" style="right: 0; left: auto; transform: translateX(100%);">
+        <div class="drawer-header">
+            <h3><i class="fa-solid fa-bars" style="color: var(--porto-primary);"></i> قائمة الأقسام</h3>
+            <button class="btn-drawer-close" onclick="closeMobileDrawer()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body-list" style="padding: 10px 0;">
+            <a href="#" class="cat-dropdown-item" onclick="closeMobileDrawer()">الرئيسية</a>
+            <a href="shop.html" class="cat-dropdown-item" onclick="closeMobileDrawer()">العبايات الفاخرة <span class="nav-badge-hot">HOT</span></a>
+            <a href="shop.html" class="cat-dropdown-item" onclick="closeMobileDrawer()">فساتين المناسبات المحتشمة <span class="nav-badge-new">NEW</span></a>
+            <a href="shop.html" class="cat-dropdown-item" onclick="closeMobileDrawer()">أطقم وبليزرات كاجوال</a>
+            <a href="shop.html" class="cat-dropdown-item" onclick="closeMobileDrawer()">طرح وشيلات حرير طبيعي</a>
+            <a href="shop.html" class="cat-dropdown-item" onclick="closeMobileDrawer()">حقائب وإكسسوارات راقية</a>
+            <a href="shop.html?filter=sale" class="cat-dropdown-item" onclick="closeMobileDrawer()"><span style="color: var(--porto-accent); font-weight: 800;">عروض التصفية حتى 70%</span></a>
+            <a href="#blog" class="cat-dropdown-item" onclick="closeMobileDrawer()">مجلة الأناقة والموضة</a>
+        </div>
+    </div>
+
+    <!-- 18. QUICK VIEW MODAL -->
+    <div class="quickview-modal" id="quickViewModal">
+        <div class="quickview-content-grid">
+            <img decoding="async" src="" id="modalImg" alt="صورة المنتج" class="quickview-img" title="متجر روزانا فاشن للأزياء النسائية المحتشمة | نموذج 5">
+            <div class="quickview-info-box">
+                <button class="btn-modal-close" onclick="closeQuickView()"><i class="fa-solid fa-xmark"></i></button>
+                <span id="modalCat" class="porto-prod-cat" style="margin-top: 10px;">عبايات فاخرة</span>
+                <h3 id="modalTitle" class="porto-prod-title" style="font-size: 18px; margin-bottom: 8px;">اسم المنتج</h3>
+                <div class="porto-prod-stars" style="justify-content: flex-start; margin-bottom: 12px;">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <span style="color: var(--text-muted); font-size: 11px; margin-right: 6px;">(34 تقييم)</span>
+                </div>
+                <div class="porto-prod-price" style="justify-content: flex-start; margin-bottom: 14px;">
+                    <span id="modalPrice" style="font-size: 22px; color: var(--porto-primary);">420.00 ر.س</span>
+                </div>
+                <p id="modalDesc" style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px;">
+                    تفاصيل القماش والتصميم والخياطة العالية بجودة مضمونة لتمنحك إطلالة محتشمة وغاية في الأناقة.
+                </p>
+                <div style="margin-bottom: 18px;">
+                    <span style="font-size: 12px; font-weight: 700; display: block; margin-bottom: 8px;">المقاسات المتوفرة:</span>
+                    <div style="display: flex; gap: 8px;">
+                        <span style="padding: 4px 12px; border: 1px solid var(--porto-primary); color: var(--porto-primary); font-weight: 800; font-size: 12px; border-radius: 2px; cursor: pointer;">54</span>
+                        <span style="padding: 4px 12px; border: 1px solid var(--border-color); color: var(--text-main); font-weight: 800; font-size: 12px; border-radius: 2px; cursor: pointer;">56</span>
+                        <span style="padding: 4px 12px; border: 1px solid var(--border-color); color: var(--text-main); font-weight: 800; font-size: 12px; border-radius: 2px; cursor: pointer;">58</span>
+                    </div>
+                </div>
+                <button class="btn-checkout-primary" id="btnModalAddToCart">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>إضافة إلى سلة المشتريات</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 19. TOAST NOTIFICATION -->
+    <div class="toast-notify" id="toastNotify">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg">تمت إضافة القطعة إلى سلة المشتريات بنجاح!</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC (No raw && symbols to protect WP API) -->
+    
+
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/201027093535" target="_blank" class="furn-floating-whatsapp" style="position:fixed; bottom:25px; right:25px; width:60px; height:60px; background:#25D366; color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:32px; box-shadow:0 8px 25px rgba(37,211,102,0.4); z-index:9999; text-decoration:none;" title="تواصل معنا عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+    <!-- Core Store JS -->
+    <script src="js/store.js"></script>
+</body>
+</html>

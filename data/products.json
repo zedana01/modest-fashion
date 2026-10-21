@@ -1,0 +1,328 @@
+{
+  "storeInfo": {
+    "name": "روزانا فاشن للأزياء النسائية المحتشمة | PORTO MODEST",
+    "shortName": "روزانا فاشن",
+    "phone": "01027093535",
+    "phoneDisplay": "01027093535",
+    "hotline": "800-440-9000",
+    "whatsapp": "01027093535",
+    "whatsappFormatted": "201027093535",
+    "email": "care@rozana-fashion.com",
+    "currency": "ر.س",
+    "topbarAnnouncement": "توصيل قياسي مجاني للطلبات فوق 299 ر.س لجميع مدن المملكة والخليج",
+    "address": "الرياض - طريق الملك عبد العزيز، مجمع روزانا فاشن سنتر",
+    "adminPin": "1234"
+  },
+  "categories": [
+    {
+      "id": "abayas",
+      "name": "عبايات فاخرة",
+      "enName": "Luxury Abayas",
+      "icon": "fa-solid fa-shirt",
+      "image": "images/cat_abaya.jpg",
+      "banner": "images/prod_bisht.jpg",
+      "desc": "أرقى العبايات المصممة بأقمشة كريب ياباني ملكي وتطريزات يدوية راقية تناسب كافة الأوقات والمناسبات."
+    },
+    {
+      "id": "dresses",
+      "name": "فساتين المناسبات",
+      "enName": "Evening & Modest Dresses",
+      "icon": "fa-solid fa-vest-patches",
+      "image": "images/cat_dresses.jpg",
+      "banner": "images/prod_emerald_dress.jpg",
+      "desc": "فساتين سهرة ومناسبات بقصات محتشمة وأكمام ملكية انسيابية تبرز وقاركِ وجمال إطلالتك."
+    },
+    {
+      "id": "casual",
+      "name": "أطقم كاجوال",
+      "enName": "Casual Linen Sets",
+      "icon": "fa-solid fa-layer-group",
+      "image": "images/cat_casual.jpg",
+      "banner": "images/prod_linen_set.jpg",
+      "desc": "أطقم نسائية مريحة وعملية من الكتان والقطن الطبيعي 100% لإطلالة يومية مفعمة بالحيوية والراحة."
+    },
+    {
+      "id": "scarves",
+      "name": "طرح وشيلات",
+      "enName": "Scarves & Veils",
+      "icon": "fa-solid fa-wind",
+      "image": "images/cat_scarves.jpg",
+      "banner": "images/prod_scarf.jpg",
+      "desc": "طرح حرير وكريب ملكي وشيلات نادرة بأطراف ليزر وتطريز ناعم وثبات مثالي."
+    },
+    {
+      "id": "bags",
+      "name": "حقائب وإكسسوارات",
+      "enName": "Bags & Accessories",
+      "icon": "fa-solid fa-bag-shopping",
+      "image": "images/cat_bags.jpg",
+      "banner": "images/prod_black_bag.jpg",
+      "desc": "حقائب جلد طبيعي فاخر وكلاتش سهرة مرصع بحليات مذهبة أنيقة تكتمل بها أناقتك."
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "عباية كريب ياباني ملكية بتطريز يدوي فاخر",
+      "category": "abayas",
+      "categoryName": "عبايات فاخرة • ABAYAS",
+      "price": 420,
+      "oldPrice": 599,
+      "badge": "خصم 30%",
+      "featured": true,
+      "newArrival": false,
+      "rating": 5,
+      "reviews": 28,
+      "image": "images/prod_abaya.jpg",
+      "desc": "مصنوعة من أرقى أقمشة الكريب الياباني الفاخر المقاوم للتجعد، مطرزة يدوياً بخيوط حريرية على الأكمام والأطراف مع طرحة مجانية مطابقة.",
+      "sizes": [
+        "52",
+        "54",
+        "56",
+        "58"
+      ],
+      "colors": [
+        "أسود ملكي",
+        "كحلي داكن"
+      ],
+      "fabric": "كريب ياباني ملكي ثقيل مات"
+    },
+    {
+      "id": 2,
+      "name": "فستان سهرة شيفون زمردي بأكمام ملكية محتشمة",
+      "category": "dresses",
+      "categoryName": "فساتين المناسبات • EVENING",
+      "price": 680,
+      "oldPrice": 850,
+      "badge": "الأكثر طلباً",
+      "featured": true,
+      "newArrival": false,
+      "rating": 5,
+      "reviews": 42,
+      "image": "images/prod_emerald_dress.jpg",
+      "desc": "فستان سهرة راقي بقصة محتشمة انسيابية من الشيفون الحريري المبطن بالساتان، مزين بتطريزات براقة ناعمة على الياقة لإطلالة تخطف الأنظار.",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "زمردي ملكي",
+        "عنابي مخملي"
+      ],
+      "fabric": "شيفون حريري طبيعي مع بطانة ساتان ناعمة"
+    },
+    {
+      "id": 3,
+      "name": "طقم قطعتين من الكتان الطبيعي بلون بيج رملي",
+      "category": "casual",
+      "categoryName": "أطقم كاجوال • CASUAL SETS",
+      "price": 320,
+      "oldPrice": 410,
+      "badge": "جديد",
+      "featured": true,
+      "newArrival": false,
+      "rating": 5,
+      "reviews": 19,
+      "image": "images/prod_linen_set.jpg",
+      "desc": "طقم كاجوال عصري ومريح للغاية مؤلف من بليزر واسع مع بنطال فضفاض بقماش الكتان الطبيعي 100%، مثالي للإطلالات اليومية والعمل.",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "بيج رملي",
+        "أبيض عاجي",
+        "زيتي هادئ"
+      ],
+      "fabric": "كتان طبيعي نقي 100% بارد وصحي"
+    },
+    {
+      "id": 4,
+      "name": "حقيبة كتف جلد طبيعي بحلية ذهبية راقية",
+      "category": "bags",
+      "categoryName": "حقائب وإكسسوارات • BAGS",
+      "price": 295,
+      "oldPrice": 365,
+      "badge": "مميز",
+      "featured": true,
+      "newArrival": false,
+      "rating": 5,
+      "reviews": 35,
+      "image": "images/prod_black_bag.jpg",
+      "desc": "حقيبة يد وكتف مصممة من أفخم أنواع الجلد الطبيعي المحبب مع قفل معدني مذهب وسلسلة أنيقة قابلة للتعديل.",
+      "sizes": [
+        "مقاس موحد 28x18 سم"
+      ],
+      "colors": [
+        "أسود",
+        "هافان كلاسيك"
+      ],
+      "fabric": "جلد بقر طبيعي محبب عالي المتانة"
+    },
+    {
+      "id": 5,
+      "name": "طرحة حرير كريب ملكية بأطراف ليزر",
+      "category": "scarves",
+      "categoryName": "طرح وشيلات • SCARVES",
+      "price": 105,
+      "oldPrice": 145,
+      "badge": "HOT",
+      "featured": false,
+      "newArrival": true,
+      "rating": 5,
+      "reviews": 14,
+      "image": "images/prod_scarf.jpg",
+      "desc": "طرحة حريرية انسيابية خفيفة وباردة مع قص ليزر دقيق وثبات رائع بدون انزلاق.",
+      "sizes": [
+        "طول 200 سم × عرض 70 سم"
+      ],
+      "colors": [
+        "أسود",
+        "بيج كشمير",
+        "رمادي لؤلؤي"
+      ],
+      "fabric": "حرير كريب ياباني ناعم غير شفاف"
+    },
+    {
+      "id": 6,
+      "name": "عباية بشت مطرزة بخيوط القصب الذهبي",
+      "category": "abayas",
+      "categoryName": "عبايات كوتور • COUTURE",
+      "price": 490,
+      "oldPrice": 620,
+      "badge": "كوتور",
+      "featured": false,
+      "newArrival": true,
+      "rating": 5,
+      "reviews": 22,
+      "image": "images/prod_bisht.jpg",
+      "desc": "تصميم بشت خليجي فاخر بقماش صالونا كوري وتطريز يدوي على الياقة بنقوش القصب التراثي المذهب.",
+      "sizes": [
+        "52",
+        "54",
+        "56",
+        "58"
+      ],
+      "colors": [
+        "أسود فاحم"
+      ],
+      "fabric": "صالونا كوري أصلي نخب أول"
+    },
+    {
+      "id": 7,
+      "name": "فستان موف كريب بأكمام كلوش محتشمة",
+      "category": "dresses",
+      "categoryName": "فساتين سهرة • DRESSES",
+      "price": 540,
+      "oldPrice": 665,
+      "badge": "خصم 20%",
+      "featured": false,
+      "newArrival": true,
+      "rating": 5,
+      "reviews": 17,
+      "image": "images/prod_mauve_dress.jpg",
+      "desc": "فستان هادئ وراقي بقماش الكريب الإيطالي المات مع أكمام كلوش وطبقات ناعمة تمنحك احتشاماً وأناقة بالغة.",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "موف لافندر",
+        "وردي بودري"
+      ],
+      "fabric": "كريب إيطالي مزدوج بارد"
+    },
+    {
+      "id": 8,
+      "name": "كلاتش سهرة مذهب مرصع بحلية كريستال",
+      "category": "bags",
+      "categoryName": "كلاتش ومحافظ • CLUTCH",
+      "price": 210,
+      "oldPrice": 280,
+      "badge": "سهرة",
+      "featured": false,
+      "newArrival": true,
+      "rating": 5,
+      "reviews": 9,
+      "image": "images/prod_clutch.jpg",
+      "desc": "حقيبة كلاتش مخصصة للمناسبات والسهرات بتصميم صلب مرصع بكريستالات لامعة وقفل مغناطيسي قوي.",
+      "sizes": [
+        "مقاس سهرة 20x12 سم"
+      ],
+      "colors": [
+        "ذهبي ملوكي",
+        "فضي براق"
+      ],
+      "fabric": "هيكل معدني مذهب مكسو بالساتان والكريستال"
+    },
+    {
+      "id": 9,
+      "name": "عباية صيفية لينن خفيف بقصة نص كلوش",
+      "category": "abayas",
+      "categoryName": "عبايات صيفية • SUMMER",
+      "price": 380,
+      "oldPrice": 470,
+      "badge": "صيفي",
+      "featured": true,
+      "newArrival": false,
+      "rating": 5,
+      "reviews": 31,
+      "image": "images/prod_summer_abaya.jpg",
+      "desc": "عباية يومية خفيفة الوزن مصممة لأجواء الصيف بقماش اللينن الطبيعي مع تقفيلة طق طق مخفية.",
+      "sizes": [
+        "52",
+        "54",
+        "56",
+        "58"
+      ],
+      "colors": [
+        "كحلي صيفي",
+        "بيج ناعم"
+      ],
+      "fabric": "لينن ناعم خفيف وبارد"
+    }
+  ],
+  "pages": {
+    "home": {
+      "heroTitle": "العبايات الفاخرة",
+      "heroSubtitle": "PORTO MODEST - Summer Sale",
+      "heroBadge": "تبدأ من / STARTING AT",
+      "heroPrice": "199 ر.س",
+      "heroDiscount": "70% OFF",
+      "heroImage": "images/hero_couture.png",
+      "heroCtaText": "تسوقي الكولكشن الآن",
+      "heroCtaLink": "shop.html",
+      "saleBannerTitle": "أقوى عروض البراندات والأزياء المحتشمة بخصومات تصل حتى 70%",
+      "saleBannerSubtitle": "كولكشن حصري ومحدود الكمية بأسعار تنافسية مباشرة من دار روزانا فاشن",
+      "saleBannerBtn": "تصفحي العروض الحصرية",
+      "pillar1Title": "خدمة عملاء راقية 24/7",
+      "pillar1Desc": "فريق استشاري نسائي متخصص لمساعدتك في تنسيق الإطلالة واختيار المقاس الأمثل على مدار الساعة.",
+      "pillar2Title": "تفصيل وتعديل المقاسات مجاناً",
+      "pillar2Desc": "خدمة التعديل الدقيق للطول والوسع مجاناً لضمان تناسق القطعة مع قوامكِ بشكل مثالي.",
+      "pillar3Title": "استبدال فوري وضمان ذهبي",
+      "pillar3Desc": "سياسة استبدال مرنة وسريعة خلال 14 يوماً مع ضمان جودة الأقمشة الفاخرة وثبات التطريز."
+    },
+    "about": {
+      "title": "عن دار روزانا فاشن للأزياء المحتشمة",
+      "subtitle": "حكاية شغف تجمع بين أصالة الاحتشام وأحدث صيحات الأناقة العصرية",
+      "story": "تأسست روزانا فاشن لتكون الوجهة الأولى للمرأة التي تبحث عن الفخامة الراقية والوقار المحتشم. نختار بعناية فائقة أرقى الأقمشة اليابانية والكورية والإيطالية، ونعتمد على أمهر أيدي الحرفيين في التطريز اليدوي الدقيق.",
+      "experienceYears": "12+",
+      "happyClients": "45,000+",
+      "exclusiveDesigns": "850+"
+    },
+    "contact": {
+      "title": "تواصلي مع فريق روزانا فاشن",
+      "subtitle": "يسعدنا دائماً استقبال استفساراتكِ ومساعدتكِ في كل خطوة",
+      "phone": "01027093535",
+      "hotline": "800-440-9000",
+      "whatsapp": "01027093535",
+      "email": "care@rozana-fashion.com",
+      "hours": "السبت - الخميس: 9:00 صباحاً - 11:00 مساءً | الجمعة: 2:00 ظهراً - 11:00 مساءً",
+      "address": "الرياض، المملكة العربية السعودية - طريق الملك عبد العزيز، مجمع روزانا فاشن سنتر"
+    }
+  }
+}
